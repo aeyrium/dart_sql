@@ -1,6 +1,6 @@
 # dart_sql [Work In Progress]
 
-A declarative SQL front end for `moor:ffi` that enables you to construct queries that look like ...
+A declarative SQL front end for any SQL libriary like `moor:ffi` or `sqflite` that enables you to construct queries that look like ...
 
 ```dart
 SQL.select().from('aircraft').where('tail_number').contains('N%').orderBy('model').asc.toString()
