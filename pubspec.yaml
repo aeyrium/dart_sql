@@ -7,8 +7,5 @@ homepage: http://aeyrium.com
 environment:
   sdk: ">=2.5.0 <3.0.0"
 
-dependencies:
-  moor_ffi: ^0.2.0
-
 dev_dependencies:
   test: ^1.6.0
