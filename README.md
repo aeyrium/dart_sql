@@ -1,4 +1,4 @@
-# dart_sql
+# dart_sql [Work In Progress]
 
 A declarative SQL front end for `moor:ffi` that enables you to construct queries that look like ...
 
