@@ -5,3 +5,7 @@
 ## [0.0.2] - 12/05/2019
 
 * Added support for DELETE queries
+
+## [0.0.3] - 12/05/2019
+
+* Added support for ORDER BY
