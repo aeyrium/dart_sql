@@ -14,15 +14,25 @@ void main() {
       expect(sql, 'SELECT id, model, year FROM aircraft');
     });
 
-    test('SELECT * FROM aircraft ORDER BY ', () {
-      var sql = SQL.select([]).from('aircraft').toString();
-      expect(sql, 'SELECT * FROM aircraft');
+    test('SELECT * FROM aircraft ORDER BY model', () {
+      var sql = SQL.select().from('aircraft').orderBy(['model']).toString();
+      expect(sql, 'SELECT * FROM aircraft ORDER BY model');
     });
 
-    test('SELECT * FROM aircraft WHERE model = "SR22"', () {
+    test('SELECT * FROM aircraft ORDER BY model, year', () {
       var sql =
-          SQL.select().from('aircraft').where('model').eq('SR22').toString();
-      expect(sql, 'SELECT * FROM aircraft WHERE model = "SR22"');
+          SQL.select().from('aircraft').orderBy(['model', 'year']).toString();
+      expect(sql, 'SELECT * FROM aircraft ORDER BY model, year');
+    });
+
+    test('SELECT * FROM aircraft WHERE model = "SR22" ORDER BY model', () {
+      var sql = SQL
+          .select()
+          .from('aircraft')
+          .where('model')
+          .eq('SR22')
+          .orderBy(['model']).toString();
+      expect(sql, 'SELECT * FROM aircraft WHERE model = "SR22" ORDER BY model');
     });
 
     test('SELECT * FROM aircraft WHERE NOT model = "SR22"', () {

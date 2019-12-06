@@ -24,7 +24,7 @@ class SQLOrderBy extends SQLWriter {
   @override
   void writeTo(StringSink sink) {
     sink.write('ORDER BY ');
-    sink.writeAll(columns);
+    sink.writeAll(columns, ', ');
     if (_suffix != null) {
       sink.write(' $_suffix');
     }

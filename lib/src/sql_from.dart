@@ -1,3 +1,4 @@
+import 'package:dart_sql/src/order_by.dart';
 import 'package:dart_sql/src/sql_writer.dart';
 import 'package:dart_sql/src/where_clause.dart';
 
@@ -8,6 +9,10 @@ class SQLFrom extends SQLWriter {
 
   SQLWhereClause where([String column]) {
     return SQLWhereClause(column: column, parent: this);
+  }
+
+  SQLOrderBy orderBy(List<String> columns) {
+    return SQLOrderBy(columns: columns, parent: this);
   }
 
   @override
