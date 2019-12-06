@@ -1,6 +1,6 @@
-import 'package:dart_sql/src/order_by.dart';
+import 'package:dart_sql/src/sql_order_by.dart';
 import 'package:dart_sql/src/sql_writer.dart';
-import 'package:dart_sql/src/where_clause.dart';
+import 'package:dart_sql/src/sql_where_clause.dart';
 
 class SQLFrom extends SQLWriter {
   SQLFrom({this.tableName, SQLWriter parent}) : super(parent);

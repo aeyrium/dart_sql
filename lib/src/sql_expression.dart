@@ -1,7 +1,7 @@
-import 'package:dart_sql/src/order_by.dart';
-import 'package:dart_sql/src/select_query.dart';
+import 'package:dart_sql/src/sql_order_by.dart';
+import 'package:dart_sql/src/sql_select_query.dart';
 import 'package:dart_sql/src/sql_writer.dart';
-import 'package:dart_sql/src/sub_query.dart';
+import 'package:dart_sql/src/sql_sub_query.dart';
 
 class SQLExpression extends SQLWriter {
   SQLExpression({this.op, this.value, SQLWriter parent}) : super(parent);

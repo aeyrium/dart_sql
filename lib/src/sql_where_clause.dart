@@ -1,4 +1,4 @@
-import 'package:dart_sql/src/expression.dart';
+import 'package:dart_sql/src/sql_expression.dart';
 import 'package:dart_sql/src/sql_writer.dart';
 
 class SQLWhereClause extends SQLExpression {

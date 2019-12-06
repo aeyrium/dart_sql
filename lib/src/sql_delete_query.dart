@@ -1,6 +1,6 @@
 import 'package:dart_sql/src/sql_from.dart';
 import 'package:dart_sql/src/sql_writer.dart';
-import 'package:dart_sql/src/where_clause.dart';
+import 'package:dart_sql/src/sql_where_clause.dart';
 
 class SQLDeleteQuery extends SQLWriter {
   SQLDeleteQuery({SQLWriter parent}) : super(parent);

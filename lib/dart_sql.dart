@@ -1,7 +1,10 @@
 library dart_sql;
 
-import 'package:dart_sql/src/delete_query.dart';
-import 'package:dart_sql/src/select_query.dart';
+import 'src/sql_delete_query.dart';
+import 'src/sql_select_query.dart';
+
+export 'src/sql_delete_query.dart';
+export 'src/sql_select_query.dart';
 
 abstract class SQL {
   static SQLSelectQuery select([List<String> projection]) {

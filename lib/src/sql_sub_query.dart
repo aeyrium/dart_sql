@@ -1,4 +1,4 @@
-import 'package:dart_sql/src/select_query.dart';
+import 'package:dart_sql/src/sql_select_query.dart';
 import 'package:dart_sql/src/sql_writer.dart';
 
 class SQLSubQuery extends SQLWriter {
