@@ -2,7 +2,7 @@ import 'package:dart_sql/src/sql_from.dart';
 import 'package:dart_sql/src/sql_writer.dart';
 
 class SQLSelectQuery extends SQLWriter {
-  SQLSelectQuery({List<String> projection, SQLWriter parent}) : super(parent);
+  SQLSelectQuery({this.projection, SQLWriter parent}) : super(parent);
 
   List<String> projection;
 
@@ -16,7 +16,8 @@ class SQLSelectQuery extends SQLWriter {
     if (projection == null || projection.isEmpty) {
       sink.write('* ');
     } else {
-      sink.writeAll(projection);
+      sink.writeAll(projection, ', ');
+      sink.write(' ');
     }
   }
 }

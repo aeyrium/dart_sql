@@ -6,7 +6,7 @@ class SQLFrom extends SQLWriter {
 
   String tableName;
 
-  SQLWhereClause where(column) {
+  SQLWhereClause where([String column]) {
     return SQLWhereClause(column: column, parent: this);
   }
 

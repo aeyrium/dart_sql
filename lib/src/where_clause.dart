@@ -8,6 +8,9 @@ class SQLWhereClause extends SQLExpression {
 
   @override
   void writeTo(StringSink sink) {
-    sink.write('WHERE $column ');
+    sink.write('WHERE ');
+    if (column != null) {
+      sink.write('$column ');
+    }
   }
 }

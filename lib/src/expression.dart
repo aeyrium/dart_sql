@@ -36,7 +36,7 @@ class SQLExpression extends SQLWriter {
     return SQLSubQuery.all(this);
   }
 
-  SQLExpression and(String column) {
+  SQLExpression and([String column]) {
     return SQLExpression(op: 'AND', value: column, parent: this);
   }
 
@@ -56,23 +56,24 @@ class SQLExpression extends SQLWriter {
   }
 
   SQLExpression inList(List<dynamic> vals) {
-    return SQLExpression(op: 'IN', value: '(${vals.join(',')})', parent: this);
+    String val = vals.map((val) => _writeVal(val)).join(', ');
+    return SQLExpression(op: 'IN', value: '($val)', parent: this);
   }
 
-  SQLSelectQuery inSelect([List<dynamic> vals]) {
-    op = 'IN';
-    return SQLSelectQuery(projection: vals, parent: this);
+  SQLSelectQuery inSelect([List<String> projection]) {
+    final expr = SQLExpression(op: 'IN', parent: this);
+    return SQLSelectQuery(projection: projection, parent: expr);
   }
 
   SQLExpression like(String pattern) {
     return SQLExpression(op: 'LIKE', value: pattern, parent: this);
   }
 
-  SQLExpression not() {
-    return SQLExpression(op: 'NOT', value: null, parent: this);
+  SQLExpression not([String column]) {
+    return SQLExpression(op: 'NOT', value: column, parent: this);
   }
 
-  SQLExpression or(String column) {
+  SQLExpression or([String column]) {
     return SQLExpression(op: 'OR', value: column, parent: this);
   }
 
