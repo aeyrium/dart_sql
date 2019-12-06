@@ -19,3 +19,7 @@ abstract class SQLWriter {
     writer.writeTo(sink);
   }
 }
+
+String writeVal(dynamic val) {
+  return (val is String) ? '"$val"' : '$val';
+}

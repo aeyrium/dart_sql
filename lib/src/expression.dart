@@ -1,3 +1,4 @@
+import 'package:dart_sql/src/order_by.dart';
 import 'package:dart_sql/src/select_query.dart';
 import 'package:dart_sql/src/sql_writer.dart';
 import 'package:dart_sql/src/sub_query.dart';
@@ -9,27 +10,27 @@ class SQLExpression extends SQLWriter {
   dynamic value;
 
   SQLExpression eq(dynamic val) {
-    return SQLExpression(op: '=', value: _writeVal(val), parent: this);
+    return SQLExpression(op: '=', value: writeVal(val), parent: this);
   }
 
   SQLExpression neq(dynamic val) {
-    return SQLExpression(op: '!=', value: _writeVal(val), parent: this);
+    return SQLExpression(op: '!=', value: writeVal(val), parent: this);
   }
 
   SQLExpression gt(dynamic val) {
-    return SQLExpression(op: '>', value: _writeVal(val), parent: this);
+    return SQLExpression(op: '>', value: writeVal(val), parent: this);
   }
 
   SQLExpression lt(dynamic val) {
-    return SQLExpression(op: '<', value: _writeVal(val), parent: this);
+    return SQLExpression(op: '<', value: writeVal(val), parent: this);
   }
 
   SQLExpression gte(dynamic val) {
-    return SQLExpression(op: '>=', value: _writeVal(val), parent: this);
+    return SQLExpression(op: '>=', value: writeVal(val), parent: this);
   }
 
   SQLExpression lte(dynamic val) {
-    return SQLExpression(op: '<=', value: _writeVal(val), parent: this);
+    return SQLExpression(op: '<=', value: writeVal(val), parent: this);
   }
 
   SQLSubQuery all() {
@@ -47,7 +48,7 @@ class SQLExpression extends SQLWriter {
   SQLExpression between(dynamic val1, dynamic val2) {
     return SQLExpression(
         op: 'BETWEEN',
-        value: '${_writeVal(val1)} AND ${_writeVal(val2)}',
+        value: '${writeVal(val1)} AND ${writeVal(val2)}',
         parent: this);
   }
 
@@ -56,7 +57,7 @@ class SQLExpression extends SQLWriter {
   }
 
   SQLExpression inList(List<dynamic> vals) {
-    String val = vals.map((val) => _writeVal(val)).join(', ');
+    String val = vals.map((val) => writeVal(val)).join(', ');
     return SQLExpression(op: 'IN', value: '($val)', parent: this);
   }
 
@@ -77,6 +78,10 @@ class SQLExpression extends SQLWriter {
     return SQLExpression(op: 'OR', value: column, parent: this);
   }
 
+  SQLOrderBy orderBy(List<String> columns) {
+    return SQLOrderBy(columns: columns, parent: this);
+  }
+
   @override
   void writeTo(StringSink sink) {
     //assert(op != null);
@@ -89,9 +94,5 @@ class SQLExpression extends SQLWriter {
       sink.write(value);
       sink.write(' ');
     }
-  }
-
-  String _writeVal(dynamic val) {
-    return (val is String) ? '"$val"' : '$val';
   }
 }
