@@ -13,3 +13,7 @@
 ## [0.0.4] - 12/06/2019
 
 * Added support for INSERT
+
+## [0.0.5] - 12/07/2019
+
+* Added additional INSERT options
