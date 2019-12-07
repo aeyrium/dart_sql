@@ -154,4 +154,22 @@ void main() {
       expect(sql, 'DELETE FROM aircraft WHERE NOT model = "SR22"');
     });
   });
+
+  group('Insert Queries', () {
+    test('INSERT INTO aircraft (model, year) VALUES ("SR22", "2014")', () {
+      Map<String, dynamic> values = {"model": "SR22", "year": "2014"};
+      final sql = SQL.insert().into('aircraft').values(values).toString();
+      expect(sql, 'INSERT INTO aircraft (model, year) VALUES ("SR22", "2014")');
+    });
+
+    test(
+        'INSERT OR REPLACE INTO aircraft (model, year) VALUES ("SR22", "2014")',
+        () {
+      Map<String, dynamic> values = {"model": "SR22", "year": "2014"};
+      final sql =
+          SQL.insert().orReplace().into('aircraft').values(values).toString();
+      expect(sql,
+          'INSERT OR REPLACE INTO aircraft (model, year) VALUES ("SR22", "2014")');
+    });
+  });
 }

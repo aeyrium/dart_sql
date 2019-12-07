@@ -9,3 +9,7 @@
 ## [0.0.3] - 12/05/2019
 
 * Added support for ORDER BY
+
+## [0.0.4] - 12/06/2019
+
+* Added support for INSERT
