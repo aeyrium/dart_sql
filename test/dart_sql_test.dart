@@ -172,4 +172,12 @@ void main() {
           'INSERT OR REPLACE INTO aircraft (model, year) VALUES ("SR22", "2014")');
     });
   });
+
+  group('Update Queries', () {
+    test('UPDATE aircraft SET model = "SR22", year = "2014"', () {
+      Map<String, dynamic> values = {"model": "SR22", "year": "2014"};
+      final sql = SQL.update().setValues('aircraft', values).toString();
+      expect(sql, 'UPDATE aircraft SET model = "SR22", year = "2014"');
+    });
+  });
 }

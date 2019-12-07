@@ -17,3 +17,7 @@
 ## [0.0.5] - 12/07/2019
 
 * Added additional INSERT options
+
+## [0.0.6] - 12/07/2019
+
+* Added support for basic UPDATE scripts
