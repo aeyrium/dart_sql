@@ -1,3 +1,4 @@
+import 'package:dart_sql/src/sql_where_clause.dart';
 import 'package:dart_sql/src/sql_writer.dart';
 
 class SQLSetValues extends SQLWriter {
@@ -5,6 +6,10 @@ class SQLSetValues extends SQLWriter {
 
   String tableName;
   Map<String, dynamic> values;
+
+  SQLWhereClause where(String column) {
+    return SQLWhereClause(parent: this, column: column);
+  }
 
   @override
   void writeTo(StringSink sink) {

@@ -21,3 +21,7 @@
 ## [0.0.6] - 12/07/2019
 
 * Added support for basic UPDATE scripts
+
+## [0.0.7] - 12/07/2019
+
+* Added WHERE support for UPDATE 

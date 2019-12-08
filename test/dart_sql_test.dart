@@ -174,10 +174,16 @@ void main() {
   });
 
   group('Update Queries', () {
-    test('UPDATE aircraft SET model = "SR22", year = "2014"', () {
+    test('UPDATE aircraft SET model = "SR22", year = "2014" WHERE id = 12', () {
       Map<String, dynamic> values = {"model": "SR22", "year": "2014"};
-      final sql = SQL.update().setValues('aircraft', values).toString();
-      expect(sql, 'UPDATE aircraft SET model = "SR22", year = "2014"');
+      final sql = SQL
+          .update()
+          .setValues('aircraft', values)
+          .where('id')
+          .eq(12)
+          .toString();
+      expect(sql,
+          'UPDATE aircraft SET model = "SR22", year = "2014" WHERE id = 12');
     });
   });
 }
